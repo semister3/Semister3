@@ -1,0 +1,86 @@
+PRACTICAL NO.07
+
+A. Designing the mobile app to implement animations
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Tween Animation Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: TweenAnimationExample(),
+    );
+  }
+}
+
+class TweenAnimationExample extends StatefulWidget {
+  @override
+  _TweenAnimationExampleState createState() => _TweenAnimationExampleState();
+}
+
+class _TweenAnimationExampleState extends State<TweenAnimationExample>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _sizeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Step 1: Initialize AnimationController
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+
+    // Step 2: Define a Tween for size animation
+    _sizeAnimation = Tween<double>(begin: 100, end: 200).animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
+
+    // Step 3: Start the animation
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tween Animation Demo'),
+      ),
+      body: Center(
+        // Step 4: Animate the size of the container
+        child: Container(
+          width: _sizeAnimation.value,
+          height: _sizeAnimation.value,
+          color: Colors.blue,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.replay),
+        onPressed: () {
+          // Step 5: Replay the animation
+          _controller.reset();
+          _controller.forward();
+        },
+      ),
+    );
+  }
+}
