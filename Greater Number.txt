@@ -1,0 +1,13 @@
+void main()
+{
+  int num=153;
+  int num2=222;
+  if(num>num2)
+  {
+    print("$num is greater");
+  }
+  else
+  {
+    print("$num2 is greater");
+  }
+}

@@ -1,0 +1,19 @@
+void main() {
+  var n=121;
+  var tem=n;
+  var rev=0;
+  while(tem>0)
+  {
+    var digit=tem%10;
+    rev=rev*10+digit;
+    tem=tem~/10;
+  }
+  if (n == rev)
+  {
+  print("Number is palindrome ");
+}
+else
+{
+    print("Number is not palindrome");
+}
+}

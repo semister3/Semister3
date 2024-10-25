@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  int num = 3;
+  int flag = 0;
+  for (int i = 2; i < num; i++) {
+    if (num % i == 0) {
+      flag = 1;
+      break;
+    }
+  }
+  if (flag == 0) {
+    print("number is prime");
+  } else {
+    print("number is not prime");
+  }
+}

@@ -1,0 +1,9 @@
+void main() {
+  var n=5;
+  var fact=1;
+  for(int i=1;i<=n;i++)
+  {
+    fact=fact*i;
+  }
+  print("$fact");
+}
