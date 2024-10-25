@@ -1,0 +1,140 @@
+PRACTICAL NO 4 
+DESIGNING THE MOBILE APP TO IMPLEMENT GESTURES 
+ 
+ 
+Code :  
+
+
+import 'package:flutter/material.dart'; 
+var cnt=0; 
+void main() {  
+  runApp(Demo()); 
+} 
+class Demo extends StatefulWidget { 
+  const Demo({super.key}); 
+  @override 
+  State<Demo> createState() => _DemoState(); 
+} 
+class _DemoState extends State<Demo> { 
+void inc() 
+{ 
+  setState(() { 
+    cnt++; 
+  }); 
+} 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      title: "Practical 4", 
+      home: Scaffold( 
+        appBar: AppBar( 
+          title: Text("Different Gestures"), 
+        ), 
+        body: Padding( 
+          padding: EdgeInsets.all(30), 
+          child: Column( 
+            children: [ 
+              Row( 
+                children: [ 
+                  const Text( 
+                    "Press to increment", 
+                    style: TextStyle(fontSize: 30), 
+                  ), 
+                ], 
+              ), 
+              Row( 
+                children: [ 
+                  GestureDetector( 
+                      onTap: () { 
+                        inc(); 
+                      }, 
+                      child: Padding( 
+                        padding: EdgeInsets.all(10), 
+                        child: Container( 
+                          height: 50, 
+                          width: 150, 
+                          color: Color.fromARGB(255, 0, 92, 212), 
+                          child: Text( 
+                            "Tap", 
+                            style: TextStyle(fontSize: 30), 
+                          ), 
+                        ), 
+                      )) 
+                ], 
+              ), 
+
+              Row( 
+                children: [ 
+                  GestureDetector( 
+                      onDoubleTap: () { 
+                        inc(); 
+                      }, 
+                      child: Padding( 
+                        padding: EdgeInsets.all(10), 
+                        child: Container( 
+                          height: 50, 
+                          width: 150, 
+                          color: Color.fromARGB(255, 12, 192, 87), 
+                          child: Text( 
+                            "Double Tap", 
+                            style: TextStyle(fontSize: 30), 
+                          ), 
+                        ), 
+                      )) 
+                ], 
+              ), 
+              Row( 
+                children: [ 
+                  GestureDetector( 
+                      onLongPress: () { 
+                        inc(); 
+                      }, 
+                      child: Padding( 
+                        padding: EdgeInsets.all(10), 
+                        child: Container( 
+                          height: 50, 
+                          width: 150, 
+                          color: Color.fromARGB(255, 247, 8, 8), 
+                          child: Text( 
+                            "Longpress", 
+                            style: TextStyle(fontSize: 30), 
+                          ), ),)) 
+                ], 
+              ), 
+              Row( 
+                children: [ 
+                  GestureDetector( 
+                      onVerticalDragEnd: (DragEndDetails) { 
+                        inc(); 
+                      }, 
+                      child: Padding( 
+                        padding: EdgeInsets.all(10), 
+                        child: Container( 
+                          height: 50, 
+                          width: 250, 
+                          color: Color.fromARGB(255, 247, 231, 8), 
+                          child: Text(  
+                            "VerticalDragEnd", 
+                            style: TextStyle(fontSize: 30), 
+                          ),), )) ], 
+              ), 
+              Row( 
+                children: [ 
+                  Text( 
+                    "Counter :  ", 
+                    style: TextStyle(fontSize: 30), 
+                  ), 
+ 
+                  Text( 
+                    "$cnt", 
+                    style: TextStyle(fontSize: 30), 
+                   )  
+                 ],  
+               )   
+             ], 
+           ),  
+         ),  
+       ),  
+  ); 
+} 
+} 
