@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  int num1 = 10;
+  int num2 = 20;
+  int num3 = 30;
+  if (num1 > num2 && num1 > num3) {
+    print("num1 is greter");
+  } else if (num2 > num1 && num2 > num3) {
+    print("num2 is greater");
+  } else {
+    print("num3 is greater");
+  }
+}
