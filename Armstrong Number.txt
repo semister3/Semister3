@@ -1,14 +1,13 @@
-import 'dart:math';
 void main()
 {
   int num=153;
   int temp=num;
   int sum=0;
-  int len=num.toString().length;
+  int digit=0;
   while(num>0)
   {
-    int digit=num%10;
-    sum+=pow(digit,len) as int;
+    digit=num%10;
+    sum=sum+(digit*digit*digit);
     num=num ~/10;
   }
   if(temp==sum)
@@ -18,5 +17,4 @@ void main()
   else{
     print("$temp is not a armstrong number");
   }
-  
 }
